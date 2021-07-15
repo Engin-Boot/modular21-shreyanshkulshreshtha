@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Diagnostics;
 using TelCo.WireColoringSystem;
 
-namespace TestWireColoringSystem
+namespace TelCo.TestWireColoringSystem
 {
     public class TestColorCoder
     {
@@ -13,6 +13,9 @@ namespace TestWireColoringSystem
         /// <param name="args"></param>
         private static void Main(string[] args)
         {
+            Console.WriteLine(ColorCoder.GetReferenceManual());
+            TestFunctionalities.TestReferenceManual(ColorCoder.GetReferenceManual());
+
             int pairNumber = 4;
             ColorPair testPair1 = ColorCoder.GetColorFromPairNumber(pairNumber);
             Console.WriteLine("[In]Pair Number: {0},[Out] Colors: {1}\n", pairNumber, testPair1);
@@ -40,8 +43,6 @@ namespace TestWireColoringSystem
             pairNumber = ColorCoder.GetPairNumberFromColor(testPair2);
             Console.WriteLine("[In]Colors: {0}, [Out] PairNumber: {1}", testPair2, pairNumber);
             Debug.Assert(pairNumber == 6);
-            
-            ColorCoder.printReferenceManual();
         }
     }
 }
