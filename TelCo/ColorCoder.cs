@@ -1,7 +1,5 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Text;
-using TelCo.TestWireColoringSystem;
 
 namespace TelCo.WireColoringSystem
 {
