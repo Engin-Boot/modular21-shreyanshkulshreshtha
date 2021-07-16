@@ -8,6 +8,9 @@ namespace TelCo.WireColoringSystem
         private static ColorMap colorMapMajor;
         private static ColorMap colorMapMinor;
 
+        public static int colorMapMajorLength { get => colorMapMajor.numberOfColors; }
+        public static int colorMapMinorLength { get => colorMapMinor.numberOfColors; }
+
         static ColorCoder()
         {
             colorMapMajor = new ColorMap(new Color[] { Color.White, Color.Red, Color.Black, Color.Yellow, Color.Violet });
