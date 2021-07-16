@@ -6,7 +6,7 @@ namespace TelCo.TestWireColoringSystem
 {
     class TestFunctionalities
     {
-        static public void TestReferenceManual(string referenceManualString)
+        static public void ValidateReferenceManual(string referenceManualString)
         {
             string[] lines = referenceManualString.Split('\n');
 

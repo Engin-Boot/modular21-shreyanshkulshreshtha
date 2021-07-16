@@ -14,7 +14,7 @@ namespace TelCo.TestWireColoringSystem
         private static void Main(string[] args)
         {
             Console.WriteLine(ColorCoder.GetReferenceManual());
-            TestFunctionalities.TestReferenceManual(ColorCoder.GetReferenceManual());
+            TestFunctionalities.ValidateReferenceManual(ColorCoder.GetReferenceManual());
 
             int pairNumber = 4;
             ColorPair testPair1 = ColorCoder.GetColorFromPairNumber(pairNumber);
