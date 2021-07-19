@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Text;
+using TelCo.ReferenceManualUtils;
 
 namespace TelCo.WireColoringSystem
 {
@@ -19,22 +20,20 @@ namespace TelCo.WireColoringSystem
             ColorEncoderDecoder.colorMapMinor = colorMapMinor;
         }
 
-        public static string GetReferenceManual()
+        public static void PrintReferenceManual(IManualReceiver receiver)
         {
             int counter = 1;
-            StringBuilder outputStringBuilder = new StringBuilder();
-            outputStringBuilder.AppendLine($"{"Code".PadRight(5).Substring(0, 5)}|  {"Major Color".PadRight(13).Substring(0, 13)}|  {"Minor Color".PadRight(13).Substring(0, 13)}");
-            outputStringBuilder.AppendLine($"{"".PadRight(5, '-')}+{"".PadRight(15, '-')}+{"".PadRight(15, '-')}");
+            receiver.write($"{"Code".PadRight(5).Substring(0, 5)}|  {"Major Color".PadRight(13).Substring(0, 13)}|  {"Minor Color".PadRight(13).Substring(0, 13)}\n");
+            receiver.write($"{"".PadRight(5, '-')}+{"".PadRight(15, '-')}+{"".PadRight(15, '-')}\n");
             for (int i = 0; i < colorMapMajor.numberOfColors; ++i)
             {
                 for (int j = 0; j < colorMapMinor.numberOfColors; ++j)
                 {
-                    outputStringBuilder.Append($" {(counter++).ToString().PadRight(4).Substring(0, 4)}|  ");
-                    outputStringBuilder.Append($"{colorMapMajor.getColorFromIndex(i).Name.PadRight(13).Substring(0, 13)}|  ");
-                    outputStringBuilder.AppendLine($"{colorMapMinor.getColorFromIndex(j).Name.PadRight(13).Substring(0, 13)}");
+                    receiver.write($" {(counter++).ToString().PadRight(4).Substring(0, 4)}|  ");
+                    receiver.write($"{colorMapMajor.getColorFromIndex(i).Name.PadRight(13).Substring(0, 13)}|  ");
+                    receiver.write($"{colorMapMinor.getColorFromIndex(j).Name.PadRight(13).Substring(0, 13)}\n");
                 }
             }
-            return outputStringBuilder.ToString();
         }
 
         public static ColorPair GetColorFromPairNumber(int pairNumber)

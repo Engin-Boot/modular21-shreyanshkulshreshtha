@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.Diagnostics;
 using TelCo.WireColoringSystem;
+using TelCo.ReferenceManualUtils;
 
 namespace TelCo.TestWireColoringSystem
 {
@@ -13,8 +14,11 @@ namespace TelCo.TestWireColoringSystem
         /// <param name="args"></param>
         private static void Main(string[] args)
         {
-            Console.WriteLine(ColorCoder.GetReferenceManual());
-            TestFunctionalities.ValidateReferenceManual(ColorCoder.GetReferenceManual());
+            ConsoleWrapper consoleWrapper = new ConsoleWrapper();
+            ColorCoder.PrintReferenceManual(consoleWrapper);
+            ManualReceiver manualReceiver = new ManualReceiver();
+            ColorCoder.PrintReferenceManual(manualReceiver);
+            TestReferenceManual.Validate(manualReceiver);
 
             int pairNumber = 4;
             ColorPair testPair1 = ColorCoder.GetColorFromPairNumber(pairNumber);
